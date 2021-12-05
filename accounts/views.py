@@ -1,5 +1,3 @@
-from re import split
-
 from carts.models import Cart, CartItem
 from django.shortcuts import redirect, render
 from django.contrib import messages, auth
@@ -10,7 +8,7 @@ from django.utils.encoding import force_bytes
 from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.tokens import default_token_generator
-
+from orders.models import Order, OrderProduct
 from .forms import RegistrationForm
 from accounts.models import Account
 from carts.views import _cart_id
@@ -144,7 +142,7 @@ def activate(request, uidb64, token):
 def dashboard(request):
     current_user = request.user
 
-    orders = OrderedDict.objects.filter(user= current_user)
+    orders = Order.objects.filter(user= current_user)
     orderProducts = OrderProduct.objects.filter(user= current_user)
     context = {
         'orders': orders,
