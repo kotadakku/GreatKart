@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-conten padding-y bg">
+    <div class="container">
+        {% include "includes/alerts.html" %}
+        <div class="row">
+            <aside class="col-md-3">
+                <!--   SIDEBAR   -->
+                <ul class="list-group">
+                    <a class="list-group-item active" href="#"> Lịch sử mua hàng </a>
+                    <!--<a class="list-group-item" href="#"> Giao dịch </a>
+                    <a class="list-group-item" href="#"> Trả lại và hoàn lại tiền </a>
+                    <a class="list-group-item" href="#">Cài đặt </a>
+                    <a class="list-group-item" href="#"> Các mặt hàng bán chạy </a>
+                    <a class="list-group-item" href="#"> Đơn hàng đã nhận </a> -->
+                </ul>
+                <br>
+                <a class="btn btn-light btn-block" href="{% url 'logout' %}"> <i class="fa fa-power-off"></i> <span class="text">Thoát
+        </span> </a>
+                <!--   SIDEBAR .//END   -->
+            </aside>
+            <main class="col-md-9">
+                <article class="card">
+                    <header class="card-header">
+                        <strong class="d-inline-block mr-3">ID đặt hàng: 6123456789</strong>
+                        <span>Ngày đặt hàng: 16 tháng 12 năm 2021</span>
+                    </header>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h6 class="text-muted">Chuyển tới</h6>    
+                                <p>{{ user.first_name }} {{first_name}}<br>
+                                    Số điện thoại {{user.phone_number}}+1234567890 Email: {{user.email}} <br>
+                                    {% for order in orders %}
+                                        Địa chỉ: {{order.address_line_2}}
+                                    {% endfor %}
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                                <!--<h6 class="text-muted">Thanh toán</h6>
+                                <span class="text-success">
+                                    <i class="fab fa-lg fa-cc-visa"></i>
+                                    Visa **** 4216
+                                </span>
+                                <p>Subtotal: $356 <br>
+                                    Shipping fee: $56 <br>
+                                    <span class="b">Total: $456 </span>
+                                </p>
+                            </div> -->
+                        </div> <!-- row.// -->
+                    </div> <!-- card-body .// -->
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            {% for orderProduct in orderProducts %}
+                            <tr>
+                                <td width="65">
+                                    <img src="/media/{{orderProduct.product.images}}" class="img-xs border">
+                                </td>
+                                <td>
+                                    <p class="title mb-0">{{orderProduct.product.product_name}}</p>
+                                    <var class="price text-muted">{{orderProduct.product_price}}</var>
+                                </td>
+                                <td> Seller <br> Nike clothing </td>
+                                <td width="250"> <a href="#" class="btn btn-outline-primary">Track order</a> <a href="#"
+                                        class="btn btn-light"> Details </a> </td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div> <!-- table-responsive .end// -->
+                </article> <!-- order-group.// -->
+            </main>
+        </div> <!-- row.// -->
+    </div>
+
+
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+{% endblock %}
