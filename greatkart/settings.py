@@ -145,6 +145,6 @@ MESSAGE_TAGS = {
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'vuhuyhoang271@gmail.com'
-EMAIL_HOST_PASSWORD = 'huyhoangvu'
+EMAIL_HOST_USER = 'eus3.g5@gmail.com'
+EMAIL_HOST_PASSWORD = '@Haimuoi7'
 EMAIL_PORT = 587

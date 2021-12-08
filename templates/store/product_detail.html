@@ -40,7 +40,7 @@
                             <!-- row.// -->
                             <div class="row">
                                 <div class="item-option-select">
-                                    <h6>Select Size</h6>
+                                    <h6>Chọn Size</h6>
                                     <select name="size" class="form-select" required>
                                         <option value="" disabled selected>Chọn size</option>
                                         {% for variation in single_product.variation_set.sizes %}
@@ -101,10 +101,10 @@
 							<input type="radio" name="rating" id="rating1" value="0.5" required /><label for="rating1" title="0.5" class="half"></label>
 						</div>
                         <br>
-                        Review title:
+                        Đánh giá tiêu đề:
                         <input type="text" class="form-control" name="subject">
                         <br>
-                        Review
+                        Đánh giá
                         <textarea name="review" rows="4" class="form-control"></textarea>
                         <br>
                         {% if user.is_authenticated %}
