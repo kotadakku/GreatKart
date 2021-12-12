@@ -16,6 +16,7 @@
 		<div class="row">
 			<aside class="col-md-3">
 				<div class="card">
+					<form action="{% url 'filter' %}" class="search" method="GET">               
 					<article class="filter-group">
 						<header class="card-header">
 							<a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
@@ -38,38 +39,7 @@
 						</div>
 					</article>
 					<!-- filter-group  .// -->
-					<article class="filter-group">
-						<header class="card-header">
-							<a href="#" data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" class="">
-								<i class="icon-control fa fa-chevron-down"></i>
-								<h6 class="title">Kích cỡ</h6>
-							</a>
-						</header>
-						<div class="filter-content collapse show" id="collapse_4">
-							<div class="card-body">
-								<label class="checkbox-btn">
-									<input type="checkbox" />
-									<span class="btn btn-light"> S </span>
-								</label>
-
-								<label class="checkbox-btn">
-									<input type="checkbox" />
-									<span class="btn btn-light"> M </span>
-								</label>
-
-								<label class="checkbox-btn">
-									<input type="checkbox" />
-									<span class="btn btn-light"> L </span>
-								</label>
-
-								<label class="checkbox-btn">
-									<input type="checkbox" />
-									<span class="btn btn-light"> XL </span>
-								</label>
-							</div>
-							<!-- card-body.// -->
-						</div>
-					</article>
+					
 					<!-- filter-group .// -->
 
 					<article class="filter-group">
@@ -85,35 +55,37 @@
 									<div class="form-group col-md-6">
 										<label>Nhỏ nhất</label>
 										<!-- <input class="form-control" placeholder="$0" type="number"> -->
-										<select class="mr-2 form-control">
-											<option value="0">$0</option>
-											<option value="50">$50</option>
-											<option value="100">$100</option>
-											<option value="150">$150</option>
-											<option value="200">$200</option>
-											<option value="500">$500</option>
-											<option value="1000">$1000</option>
+										<select name="l" class="mr-2 form-control">
+											<option value="0">0</option>
+											<option value="100000">100k</option>
+											<option value="200000">200k</option>
+											<option value="500000">500k</option>
+											<option value="1000000">1m</option>
+											<option value="1500000">1.5m</option>
+											<option value="2000000">2m</option>
 										</select>
 									</div>
 									<div class="form-group text-right col-md-6">
 										<label>Lớn nhất</label>
-										<select class="mr-2 form-control">
-											<option value="50">$50</option>
-											<option value="100">$100</option>
-											<option value="150">$150</option>
-											<option value="200">$200</option>
-											<option value="500">$500</option>
-											<option value="1000">$1000</option>
-											<option value="2000">$2000+</option>
+										<select name="b" class="mr-2 form-control">
+											<option value="200000">200k</option>
+											<option value="500000">500k</option>
+											<option value="800000">800k</option>
+											<option value="1000000">1m</option>
+											<option value="2000000">2m</option>
+											<option value="5000000">5m</option>
+											<option value="10000000">10m</option>
 										</select>
 									</div>
 								</div>
 								<!-- form-row.// -->
+								
 								<button class="btn btn-block btn-primary">Áp dụng</button>
 							</div>
 							<!-- card-body.// -->
 						</div>
 					</article>
+				</form>
 					<!-- filter-group .// -->
 				</div>
 				<!-- card.// -->

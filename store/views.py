@@ -20,7 +20,7 @@ def store(request, category_slug=None):
     links = Category.objects.all()
     page = request.GET.get('page')
     page = page or 1
-    paginator = Paginator(products, 3)
+    paginator = Paginator(products, 9)
     paged_products = paginator.get_page(page)
     product_count = products.count()
 
@@ -66,10 +66,35 @@ def search(request):
         q = request.GET.get('q')
         products = Product.objects.order_by('-created_date').filter(Q(product_name__icontains=q) | Q(description__icontains=q))
         product_count = products.count()
+    if 'b' in request.GET:
+        q = request.GET.get('b')
+        products = Product.objects.order_by('-created_date').filter(Q(product_name__icontains=q) | Q(description__icontains=q))
+        product_count = products.count()
+    links = Category.objects.all()
     context = {
         'products': products,
         'q': q,
-        'product_count': product_count
+        'product_count': product_count,
+        'links': links
+    }
+    return render(request, 'store/store.html', context=context)
+
+def filter(request):
+
+    minPrice = 0
+    maxPrice = 10000000
+    if 'b' in request.GET:
+        maxPrice = request.GET.get('b')
+    if 'l' in request.GET:
+        minPrice = request.GET.get('l')
+        
+    products = Product.objects.order_by('-created_date').filter(Q(price__gte=minPrice) & Q(price__lte=maxPrice))
+    links = Category.objects.all()
+    product_count = products.count()
+    context = {
+        'products': products,
+        'product_count': product_count,
+        'links': links
     }
     return render(request, 'store/store.html', context=context)
 
